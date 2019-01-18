@@ -1,0 +1,37 @@
+
+.btn-margin{
+    margin-left: 30px;
+}
+.main{
+  margin-left:.3%;
+  border-radius: 10px;
+}
+.back{
+  /* background-image: url('/assets/29.png'); */
+  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/assets/52.jpg");
+  
+  background-size: 100% 100%;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  
+}
+img {
+    height: 200px;
+  }
+  .preview{
+      width: 430px;
+      height: 240px;
+      border: 1px solid black;
+  }
+  .cover {
+    width: 400px;
+    object-fit: cover;
+  }
+  [hidden] {
+    display: none ;
+  }
+
+  .bg-margin{
+    margin-top: 100px;
+  }
+

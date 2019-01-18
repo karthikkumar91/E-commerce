@@ -1,0 +1,81 @@
+<p>
+  register works!
+</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+   <div class="col-lg-8 ">
+      <form class="form-horizontal " #Register="ngForm" (ngSubmit)="register(Register.value)">
+          <div class="form-group">
+            <label for="inputName" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-7 fm-align">
+              <input type="text" class="form-control"name="username" #name="ngModel"  
+              [ngClass]="{'alert-danger' : name.invalid && name.touched, 'alert-success' : name.valid,'fm-border-success' : name.valid}"
+              id="inputName" placeholder="name" minlength="4" ngModel required>
+              <label for="inputname"></label>
+            </div>
+              <small class="text-danger" *ngIf="name.touched && name.pristine" >* Plz Enter Name</small>
+              <small class="text-danger" *ngIf="! name.minlength && name.dirty &&name.invalid">Plz Enter min 4 char</small>
+          </div>
+          <div class="form-group ">
+            <label for="inputEmail" class="col-sm-3 control-label">Email Id</label>
+            <div class="col-sm-7 fm-align">
+              <input type="email"class="form-control"name="email" #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+              [class.alert-danger] ="email.invalid && email.touched" [class.alert-success]="email.valid" [class.fm-border-success]="email.valid"
+              id="inputEmail" placeholder="name" ngModel required>
+              <label for="inputEmail"></label>
+            </div>
+              <small class="text-danger" *ngIf="email.touched && email.pristine" >* Plz Enter Mail Id</small>
+              <small class="text-danger" *ngIf="! email.pattern && email.dirty &&email.invalid">Plz Enter Valid mail ID</small>
+          </div>
+          <div class="form-group">
+            <label for="inputPhone" class="col-sm-3 control-label">Mobile</label>
+            <div class="col-sm-7 fm-align">
+              <input type="text"class="form-control"name="mobile" #mobile="ngModel" pattern="[0-9]{10}" 
+              [ngClass] = "{'alert-danger' : mobile.invalid && mobile.touched , 'alert-success' : mobile.valid,'fm-border-success' : mobile.valid}"
+              id="inputPhone" placeholder="10 digit Mobile No" ngModel required>
+              <label for="inputPhone"></label>
+            </div>
+              <small class="text-danger" *ngIf="mobile.touched && mobile.pristine" >* Plz Enter Mobile Number</small>
+              <small class="text-danger" *ngIf="! mobile.pattern && mobile.dirty &&mobile.invalid">Enter Valid Mobile No</small>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-7 fm-align">
+              <input type="password"class="form-control"name="password" #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+              [ngClass]="{'alert-danger' : password.invalid && password.touched, 'alert-success' : password.valid,'fm-border-success' : password.valid}"
+              id="inputPassword" placeholder="Password" ngModel required>
+              <label for="inputPassword"></label>
+            </div>
+           
+            <small class="text-danger" *ngIf="password.touched && password.pristine">* Plz Assign Password</small>
+          </div> 
+          <div class="col-sm-3"></div>
+          <div class="col-sm-7">
+            <div class="text-danger" *ngIf="! password.pattern && password.dirty && password.invalid">PassWord Must Contain One Lowercase One UpperCase One Digit And Must Contain 8 Character</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="inputConfirm" class="col-sm-3 control-label">Confirm Password</label>
+            <div class="col-sm-7 fm-align">
+              <input type="password"class="form-control" name="confirmpassword" #confirm_pwd="ngModel"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+              [ngClass] ="{'alert-danger' : confirm_pwd.invalid && confirm_pwd.touched, 'alert-success' : confirm_pwd.value == password.value && password.value !='','fm-border-success':confirm_pwd.value == password.value && password.value !=''}"
+              id="inputConfirm" placeholder="Confirm PassWord" ngModel required>
+              <label for="confirmpassword"></label>
+            </div>
+            <small class="text-danger" *ngIf="confirm_pwd.touched && confirm_pwd.pristine">*Assign Confirm PassWord</small>
+            <small class="text-success" *ngIf="password.value==confirm_pwd.value && password.value !=''">Mached</small>
+          </div> 
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10 text-center">
+              <button [disabled]= "Register.form.invalid || password.value != confirm_pwd.value" type="submit" class="btn btn-default"
+              [class.btn-success]="Register.form.valid && password.value == confirm_pwd.value"
+              >Register</button>
+              <div class="btn btn-default btn-margin">Clear</div>
+            </div>
+          </div>
+        </form>
+   </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>

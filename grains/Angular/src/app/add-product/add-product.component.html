@@ -1,0 +1,70 @@
+<!-- <div class="container-fluid col-sm-12" [ngStyle]="{'background' : 'url(/assets/3.jpg)'}"> -->
+  <div class="container-fluid col-sm-12 back">
+  <div class="container">
+    <div class="row col-sm-12">
+      <h1 class="text-center text-capitalize text-primary">Add Products</h1>
+    </div>
+  </div>
+  <div class="row col-sm-12  main">
+  <div class="container bg-margin">
+        <div class="row">
+          <div class="col-lg-0"></div>
+         <div class="col-lg-7 ">
+            <form class="form-horizontal " #products="ngForm" (ngSubmit)="product(products.value)" >
+                <div class="form-group">
+                  <label for="inputname" class="col-sm-2 text-left">Name</label>
+                  <div class="col-sm-7">
+                    <input type="name" #name="ngModel" class="form-control"
+                    [class.alert-danger]="name.invalid && name.touched"
+                    name="name" id="inputname" placeholder="name" ngModel >
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputprice" class="col-sm-2 text-left">price</label>
+                    <div class="col-sm-7">
+                      <input type="text" #price="ngModel" class="form-control"
+                      name="price" id="inputprice" placeholder="price" ngModel >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="inputdesc" class="col-sm-2 text-left">description</label>
+                      <div class="col-sm-7">
+                        <input type="text" #price="ngModel" class="form-control"
+                        name="desc" id="inputdesc" placeholder="description" ngModel >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputspcn" class="col-sm-2 text-left">Specification</label>
+                        <div class="col-sm-7">
+                          <input type="text" #price="ngModel" class="form-control"
+                          name="spcn" id="inputspcn" placeholder="Specification" ngModel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- control-label class used for allign right side content in label -->
+                        <label for="inputupload" class="col-sm-2 text-left">Upload File</label>
+                          <div class="text-center">
+                              <label class="btn btn-success">
+                                  Upload <input type="file"#img="ngModel" class="form-control" name="picture" (change)="createFormData($event)" ngModel hidden>
+                              </label>
+                          </div>
+                    </div>
+                  <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10 text-center">
+                    <button [disabled]=" !products.form.valid"  type="submit" class="btn btn-default ">Submit</button>
+                    <div class="btn btn-default btn-margin">Cancel</div>
+                  </div>
+                 
+                </div>
+              </form>
+         </div>
+          <div class="col-lg-3 preview">
+            <p class="text-center text-success">Image Preview</p>
+            <div  *ngIf="url !=null">
+                <img [src]="url" class="cover">
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>   
+</div>
