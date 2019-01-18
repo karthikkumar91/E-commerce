@@ -1,0 +1,21 @@
+.btn-margin{
+    margin-left: 30px;
+}
+
+.top-navi{
+    height: 80px;
+    background-color: #e9fafa;
+}
+.center{
+    margin-top: 25px;
+    margin-right: 50px;
+    position: sticky;
+    top:0;
+}
+.carousel-size{
+    height: 400px;;
+}
+
+.main-content{
+    margin-top: 50px;
+}

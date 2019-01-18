@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div class="row bg-warning bg-size">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-9 text-right ">
+      <button class="btn btn-info btn-margin" routerLink="add-product">Add Product</button>
+      <!-- <button class="btn btn-default btn-margin" routerLink="/">View Home Page</button> -->
+      <button class="btn btn-info btn-margin" routerLink="/customer-page">View Home Page</button>
+      <button class="btn btn-info btn-margin" (click)="clear()">LogOut</button>
+    </div>
+    <!-- <div class="col-lg-3"></div> -->
+  </div>
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+</div>

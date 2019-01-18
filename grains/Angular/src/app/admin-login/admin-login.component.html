@@ -1,0 +1,57 @@
+<p>
+  admin-login works!
+</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+   <div class="col-lg-7 ">
+      <form class="form-horizontal " #adminLogin="ngForm" (ngSubmit)="validate(adminLogin.value)" NgnativeValidate>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-7">
+              <input type="name" #name="ngModel" class="form-control" minlength="4"
+              [class.alert-danger]="name.invalid && name.touched"
+              name="username" id="inputEmail3" placeholder="name" ngModel required>
+              <!-- {{name.className}} -->
+              <!-- {{name.untouched}} -->
+            </div>
+            <div class="col-sm-3" *ngIf="name.errors && (name.invalid || name.touched)">
+              <small class="text-danger" *ngIf="name.errors.required">* Plz Enter Name</small>
+              <small class="text-danger" *ngIf="name.errors.minlength">Name Min Length Is 4</small>
+            </div>
+            <small class="text-danger" *ngIf="fail.length !=0">May Be Username Wrong</small>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-7">
+              <input type="password" #password="ngModel" minlength="4" class="form-control" 
+              [class.alert-danger]="password.invalid && password.touched"
+              name="password" id="inputPassword3" placeholder="Password" ngModel required>
+            </div>
+            <div class="col-sm-3" *ngIf="password.errors && (password.invalid || password.touched)">
+              <small class="text-danger" *ngIf="password.errors.required">* Plz Enter Password</small>
+              <small class="text-danger" *ngIf="password.errors.minlength">Name Min Length Is 4</small>
+            </div>
+            <small class="text-danger" *ngIf="fail.length !=0">May Be Password Wrong</small>
+          </div> 
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10 text-center">
+              <button [disabled]=" !adminLogin.form.valid || fail.length !=0"  type="submit" class="btn btn-default ">Sign in</button>
+              <div class="btn btn-default btn-margin">Cancel</div>
+            </div>
+            <div class="text-center text-danger" *ngIf="fail.length !=0"> Sorry username Or Password Wrong</div>
+          </div>
+        </form>
+   </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>

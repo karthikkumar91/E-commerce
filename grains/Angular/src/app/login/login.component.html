@@ -1,0 +1,33 @@
+<p>
+  login works!
+</p>
+
+
+<div class="container">
+  
+  <div class="col-lg-3 "></div>
+  <div class="row col-lg-6 bg-danger">
+      <form [formGroup]="formData" (ngSubmit)="validation(formData.value)">
+        <p class="text-center  title">Login Page</p>
+        <div class="form-group has-success has-feedback" >
+        <div class="input-group input-margin">
+          <span class="input-group-addon check">&#x2709;</span>
+          <input type="text" class="form-control" formControlName="user_name">
+        </div>
+          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+        </div>
+        <div class="form-group has-success has-feedback">
+      <div class="input-group">
+        <span class="input-group-addon check">&#128065;</span>
+        <input type="password" class="form-control" formControlName="user_password">
+      </div>
+      <span class="glyphicon glyphicon-ok form-control-feedback" ></span>
+    </div>
+    <div class="text-center" style="margin:60px;">
+      <button class="btn btn-success ">Login</button>
+      <button class="btn btn-success btn-margin">Clear</button>
+    </div>
+    <div class="input-margin"></div>
+      </form>
+  </div>
+</div>
